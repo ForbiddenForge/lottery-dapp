@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+	.stats {
+		@apply bg-[#2f0d16] text-white p-4 flex-1 rounded-md border-[#692335] border-2;
+	}
+
+	.stats-container {
+		@apply bg-[#2f0d16] p-5 rounded-lg border-[#692335] border flex-1;
+	}
+	.countdown {
+		@apply p-8 text-5xl text-center text-white rounded-lg lg:min-w-[125px] bg-[#7e233d];
+	}
+	.countdown-label {
+		@apply text-center text-white uppercase text-sm pt-4;
+	}
+	.buy-btn {
+		@apply mt-5 w-full bg-gradient-to-br from-red-400 to-orange-700 px-10 py-5 rounded-md text-white shadow-xl disabled:from-gray-600 disabled:to-gray-100 disabled:cursor-not-allowed !important;
+	}
+	.buy-btn:hover {
+		@apply animate-pulse;
+	}
+
+	.connect-btn {
+		@apply mt-5 bg-gradient-to-br from-red-400 to-orange-700 px-10 py-5 rounded-md text-white shadow-xl disabled:from-gray-600 disabled:to-gray-100 disabled:cursor-not-allowed !important;
+	}
+	.connect-btn:hover {
+		@apply animate-pulse;
+	}
+	.win-btn {
+		@apply text-white w-full rounded-[0.75rem] text-center block bg-gradient-to-b from-[#FFA500] to-[#008000] shadow-md p-4 animate-pulse !important;
+	}
+	.admin-btn {
+		@apply bg-[#2f0d16] block p-2 text-white flex-1 rounded-[0.25rem] border-[2px] border-solid border-[#e358c9] hover:text-white hover:bg-pink-500 !important;
+	}
+}
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+		rgb(var(--background-start-rgb));
+}
