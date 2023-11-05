@@ -52,9 +52,9 @@ const Home: NextPage = () => {
 		setUserTickets(noOfUserTickets);
 	}, [address, getTickets]);
 
-	if (!address) return <Login />;
-
 	if (isLoading) return <Loading />;
+
+	if (!address) return <Login />;
 
 	return (
 		<div className="bg-[#1c080d] min-h-screen flex flex-col">
