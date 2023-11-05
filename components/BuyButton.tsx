@@ -42,7 +42,7 @@ function BuyButton(props: Props) {
 			console.log("payment successful, tickets remaining:", remainingTickets);
 		} catch (error) {
 			toast.error(
-				"Oopsies! Something went wrong⚠️ Please check you are using the correct wallet and Chain",
+				"Oopsies! Something went wrong⚠️ Please ensure that you are using the correct wallet and on BNB Chain",
 				{ id: notify }
 			);
 			console.log("Contract call faliure.", error);
