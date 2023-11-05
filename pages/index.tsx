@@ -54,7 +54,10 @@ const Home: NextPage = () => {
 
 	if (!address) return <Login />;
 
-	if (isLoading) return <Loading />;
+	// if (isLoading) {
+	// 	let loading_time = Date.now();
+	// 	return <Loading />;
+	// }
 
 	return (
 		<div className="bg-[#1c080d] min-h-screen flex flex-col">
