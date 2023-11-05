@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 		setUserTickets(noOfUserTickets);
 	}, [address, getTickets]);
 
-	if (isLoading) return <Loading />;
+	// if (isLoading) return <Loading />;
 
 	if (!address) return <Login />;
 
