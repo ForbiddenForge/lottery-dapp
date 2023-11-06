@@ -180,7 +180,7 @@ const Home: NextPage = () => {
 				</div>
 
 				<div>
-					<img className="flex-1 ml-auto mr-auto mt-20" src="lotter-on-sale.jpg" alt="" />
+					<img className="flex-1 ml-auto mr-auto mt-10 mb-10" src="lotter-on-sale.jpg" alt="" />
 				</div>
 			</div>
 			<Footer />
