@@ -21,6 +21,7 @@ function AdminControls() {
 	const { mutate: DrawWinnerTicket } = useContractWrite(contract, "DrawWinnerTicket");
 	const { mutate: restartDraw } = useContractWrite(contract, "restartDraw");
 	const { mutate: RefundAll } = useContractWrite(contract, "RefundAll");
+	const { data: lotteryOperator } = useContractRead(contract, "lotteryOperator");
 
 	const handleAction = async () => {
 		const notify = toast.loading("Withdrawing your commission...");
@@ -89,51 +90,53 @@ function AdminControls() {
 			console.log("Contract call faliure.", error);
 		}
 	};
+	if (lotteryOperator) {
+		return (
+			<div className="text-white text-center px-5 py-3 rounded-md border">
+				<h2 className="font-bold">Admin Controls</h2>
+				<p className="mb-5">
+					Total Commission to be withdrawn:{" "}
+					{totalCommission && ethers.utils.formatEther(totalCommission.toString())} BNB
+				</p>
+				<div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
+					<Web3Button
+						contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
+						action={handleDraw}
+						className="admin-btn">
+						{" "}
+						<StarIcon className="h-6 mx-auto mb-2" /> Draw Winner
+					</Web3Button>
 
-	return (
-		<div className="text-white text-center px-5 py-3 rounded-md border">
-			<h2 className="font-bold">Admin Controls</h2>
-			<p className="mb-5">
-				Total Commission to be withdrawn:{" "}
-				{totalCommission && ethers.utils.formatEther(totalCommission.toString())} BNB
-			</p>
-			<div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
-				<Web3Button
-					contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
-					action={handleDraw}
-					className="admin-btn">
-					{" "}
-					<StarIcon className="h-6 mx-auto mb-2" /> Draw Winner
-				</Web3Button>
+					<Web3Button
+						contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
+						action={handleAction}
+						className="admin-btn">
+						{" "}
+						<CurrencyDollarIcon className="h-6 mx-auto mb-2" />
+						Withdraw Commision
+					</Web3Button>
 
-				<Web3Button
-					contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
-					action={handleAction}
-					className="admin-btn">
-					{" "}
-					<CurrencyDollarIcon className="h-6 mx-auto mb-2" />
-					Withdraw Commision
-				</Web3Button>
-
-				<Web3Button
-					contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
-					action={handleRestart}
-					className="admin-btn">
-					{" "}
-					<ArrowPathIcon className="h-6 mx-auto mb-2" />
-					Restart Draw
-				</Web3Button>
-				<Web3Button
-					contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
-					action={handleReFundAll}
-					className="admin-btn">
-					{" "}
-					<ArrowUturnDownIcon className="h-6 mx-auto mb-2" />
-					Refund All
-				</Web3Button>
+					<Web3Button
+						contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
+						action={handleRestart}
+						className="admin-btn">
+						{" "}
+						<ArrowPathIcon className="h-6 mx-auto mb-2" />
+						Restart Draw
+					</Web3Button>
+					<Web3Button
+						contractAddress={process.env.NEXT_PUBLIC_SMART_CONTRACT!.toString()}
+						action={handleReFundAll}
+						className="admin-btn">
+						{" "}
+						<ArrowUturnDownIcon className="h-6 mx-auto mb-2" />
+						Refund All
+					</Web3Button>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	} else {
+		return <div></div>;
+	}
 }
-
 export default AdminControls;
