@@ -59,10 +59,8 @@ function BuyButton(props: Props) {
 				`Buy ${props.quantity} ticket${props.quantity > 1 ? "s" : ""} for ${
 					ticketPrice && Number(ethers.utils.formatEther(ticketPrice.toString())) * props.quantity
 				} BNB`}
-			{disabled &&
-				`Tickets Sales Currently Closed ${(
-					<br />
-				)}or You've attemped to purchase more than 5 tickets.`}
+			{disabled && `Tickets Sales Currently Closed `}
+			{disabled && `or you've attemped to purchase more than 5 tickets.`}
 		</Web3Button>
 	);
 }

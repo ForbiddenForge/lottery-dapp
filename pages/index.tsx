@@ -54,7 +54,7 @@ const Home: NextPage = () => {
 
 	// if (isLoading) return <Loading />;
 
-	if (!address) return <Login />;
+	// if (!address) return <Login />;
 
 	return (
 		<div className="bg-[#1c080d] min-h-screen flex flex-col">
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
 						<h4 className="text-white font-bold mr-5">Last Winner: {lastWinner?.toString()}</h4>
 						<h4 className="text-white font-bold">
 							Winnings: {lastWinnerAmount && ethers.utils.formatEther(lastWinnerAmount?.toString())}{" "}
-							{process.env.CURRENCY}
+							{`BNB`}
 						</h4>
 					</div>
 				</Marquee>
@@ -86,7 +86,7 @@ const Home: NextPage = () => {
 				)}
 
 				{/* {The Next Lottery Drawing box} */}
-				<div className="space-y-5 md:space-y-0 m-5 md:flex md:flex-row items-stretch justify-center md:space-x-5">
+				<div className="space-y-5 md:space-y-0 m-5 md:flex md:flex-row justify-center md:space-x-5">
 					<div className="stats-container max-w-lg">
 						<h1 className=" text-5xl text-white font-semibold text-center mb-5">
 							The Next Lottery Drawing
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
 								<p className="text-xl">
 									{currentWinningReward &&
 										ethers.utils.formatEther(currentWinningReward.toString())}{" "}
-									{process.env.CURRENCY}
+									{`BNB`}
 								</p>
 							</div>
 							<div className="stats">
@@ -116,8 +116,7 @@ const Home: NextPage = () => {
 							<div className="flex justify-between items-center text-white pb-2">
 								<h2>Price per ticket</h2>
 								<p>
-									{ticketPrice && ethers.utils.formatEther(ticketPrice.toString())}{" "}
-									{process.env.CURRENCY}
+									{ticketPrice && ethers.utils.formatEther(ticketPrice.toString())} {`BNB`}
 								</p>
 							</div>
 							<div>
@@ -142,14 +141,14 @@ const Home: NextPage = () => {
 									<p>
 										{ticketPrice &&
 											Number(ethers.utils.formatEther(ticketPrice?.toString())) * quantity}{" "}
-										{process.env.CURRENCY}
+										{`BNB`}
 									</p>
 								</div>
 								<div className="flex items-center justify-between text-emerald-500 text-xs italic">
 									<p>Service Fees (included in total)</p>
 									<p>
 										{ticketCommission && ethers.utils.formatEther(ticketCommission.toString())}{" "}
-										{process.env.CURRENCY}
+										{`BNB`}
 									</p>
 								</div>
 								<div className="flex items-center justify-between text-fuchsia-400 text-xs italic">

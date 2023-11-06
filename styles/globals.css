@@ -10,7 +10,7 @@
 		@apply bg-[#2f0d16] p-5 rounded-lg border-[#692335] border flex-1;
 	}
 	.countdown {
-		@apply p-8 text-5xl text-center text-white rounded-lg lg:min-w-[125px] bg-[#7e233d];
+		@apply max-w-sm p-8 text-5xl text-center text-white rounded-lg lg:min-w-[125px] bg-[#7e233d] lg:max-w-md;
 	}
 	.countdown-label {
 		@apply text-center text-white uppercase text-sm pt-4;
@@ -23,7 +23,7 @@
 	}
 
 	.connect-btn {
-		@apply mt-5 bg-gradient-to-br from-red-400 to-orange-700 px-10 py-5 rounded-md text-white shadow-xl disabled:from-gray-600 disabled:to-gray-100 disabled:cursor-not-allowed !important;
+		@apply mt-5 bg-gradient-to-br from-red-400 to-orange-700 px-5 py-5 mt-0 rounded-md text-white shadow-xl disabled:from-gray-600 disabled:to-gray-100 disabled:cursor-not-allowed !important;
 	}
 	.connect-btn:hover {
 		@apply animate-pulse;

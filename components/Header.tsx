@@ -1,12 +1,13 @@
 import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
 import NavButton from "./NavButton";
 import React from "react";
-import { useAddress, useDisconnect } from "@thirdweb-dev/react";
+import { useAddress, useDisconnect, Web3Button, darkTheme } from "@thirdweb-dev/react";
 import { redirect } from "next/dist/server/api-utils";
 
 export default function Header() {
 	const address = useAddress();
 	const disconnect = useDisconnect();
+	const disabled = address;
 
 	return (
 		<header className="grid grid-cols-2 md:grid-cols-5  justify-between items-center p-5">
@@ -29,7 +30,22 @@ export default function Header() {
 						href="https://dragon-bsc.vip">
 						Home
 					</a>
-					<NavButton title="Buy Tickets" isActive />
+					<Web3Button
+						theme={darkTheme({
+							fontFamily: "Inter, sans-serif",
+							colors: {
+								modalBg: "#000000",
+								accentText: "red",
+							},
+						})}
+						connectWallet={{ btnTitle: "Connect Wallet", modalTitle: "Login" }}
+						isDisabled={disabled}
+						contractAddress="0xC07EA1c6BbB14088Fcab9D4D49A2023f2d455191"
+						action={(contract) => console.log(contract)}
+						className="connect-btn">
+						{disabled && `Connected ✅`}
+						{!disabled && `Connect Wallet`}
+					</Web3Button>
 					<NavButton onClick={disconnect} title="Logout" />
 				</div>
 			</div>
