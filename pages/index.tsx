@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 								<h2 className="text-sm">Total Prize Pool</h2>
 								<p className="text-xl">
 									{currentWinningReward &&
-										ethers.utils.formatEther(currentWinningReward.toString())}{" "}
+										ethers.utils.formatEther(currentWinningReward * 0.8).toString()}{" "}
 									{`BNB`}
 								</p>
 							</div>
