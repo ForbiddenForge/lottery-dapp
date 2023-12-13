@@ -19,7 +19,7 @@ function BuyButton(props: Props) {
 	const disabled =
 		expiration?.toString() < Date.now().toString() ||
 		parseInt(remainingTickets) === 0 ||
-		props.noOfUserTickets === 5 ||
+		props.noOfUserTickets >= 5 ||
 		props.quantity > 5;
 
 	const buyTicket = async () => {
@@ -61,6 +61,7 @@ function BuyButton(props: Props) {
 				} BNB`}
 			{disabled && `Tickets Sales Currently Closed `}
 			{disabled && `or you've attemped to purchase more than 5 tickets.`}
+			<br />
 		</Web3Button>
 	);
 }
