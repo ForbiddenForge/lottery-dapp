@@ -145,7 +145,7 @@ const Home: NextPage = () => {
 									</p>
 								</div>
 								<div className="flex items-center justify-between text-emerald-500 text-xs italic">
-									<p>Service Fees (included in total)</p>
+									<p>Deployer Fees (included in total)</p>
 									<p>
 										{ticketCommission && ethers.utils.formatEther(ticketCommission.toString())}{" "}
 										{`BNB`}

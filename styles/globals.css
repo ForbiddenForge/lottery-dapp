@@ -10,7 +10,7 @@
 		@apply bg-[#2f0d16] p-5 rounded-lg border-[#692335] border flex-1;
 	}
 	.countdown {
-		@apply max-w-sm px-3 py-5 text-3xl text-center text-white rounded-lg lg:min-w-[125px] bg-[#7e233d] lg:max-w-md;
+		@apply max-w-sm px-1 py-5 text-3xl text-center text-white rounded-lg lg:min-w-[100px] bg-[#7e233d] lg:max-w-sm;
 	}
 	.countdown-label {
 		@apply text-center text-white uppercase text-sm pt-4;

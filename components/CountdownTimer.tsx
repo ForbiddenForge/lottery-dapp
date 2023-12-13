@@ -13,7 +13,7 @@ function CountdownTimer() {
 	const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_SMART_CONTRACT);
 	const { data: expiration } = useContractRead(contract, "expiration");
 
-	const renderer = ({ hours, minutes, seconds, completed }: Props) => {
+	const renderer = ({ days, hours, minutes, seconds, completed }: Props) => {
 		if (completed) {
 			return (
 				<div>
@@ -21,7 +21,11 @@ function CountdownTimer() {
 						Ticket sales have now CLOSED for this drawing.
 					</h2>
 					<div>
-						<div className="flex space-x-6">
+						<div className="flex space-x-2">
+							<div className="flex-1">
+								<div className="countdown animate-pulse">{days}</div>
+								<div className="countdown-label">days</div>
+							</div>
 							<div className="flex-1">
 								<div className="countdown animate-pulse">{hours}</div>
 								<div className="countdown-label">hours</div>
@@ -42,7 +46,11 @@ function CountdownTimer() {
 			return (
 				<div>
 					<h3 className="text-white text-sm mb-2 italic"> Time Remaining</h3>
-					<div className="flex space-x-6">
+					<div className="flex space-x-2">
+						<div className="flex-1">
+							<div className="countdown">{days}</div>
+							<div className="countdown-label">days</div>
+						</div>
 						<div className="flex-1">
 							<div className="countdown">{hours}</div>
 							<div className="countdown-label">hours</div>
