@@ -12,7 +12,7 @@ export default function Header() {
 	return (
 		<header className="grid grid-cols-2 md:grid-cols-5  justify-between items-center p-5">
 			<div className="flex items-center space-x-2">
-				<img className="rounded-full h-20 w-20" src="Logo-circle-transparent-bg.png" alt="" />
+				<img className="rounded-full h-20 w-20" src="DragonLogo200.png" alt="" />
 
 				<div>
 					<h1 className="text-lg text-white font-bold">The Dragon Lottery</h1>
