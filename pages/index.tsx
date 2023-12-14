@@ -96,7 +96,7 @@ const Home: NextPage = () => {
 								<h2 className="text-sm">Total Prize Pool</h2>
 								<p className="text-xl">
 									{currentWinningReward &&
-										ethers.utils.formatEther(currentWinningReward * 0.8).toString()}{" "}
+										(ethers.utils.formatEther(currentWinningReward) * 0.8).toString()}{" "}
 									{`BNB`}
 								</p>
 							</div>
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
 									<p></p>
 								</div>
 							</div>
-							<BuyButton quantity={quantity} />
+							<BuyButton quantity={quantity} noOfUserTickets={userTickets} />
 						</div>
 						{userTickets >= 0 && (
 							<div className="stats">
