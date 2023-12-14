@@ -156,7 +156,7 @@ const Home: NextPage = () => {
 									<p></p>
 								</div>
 							</div>
-							<BuyButton quantity={quantity} noOfUserTickets={userTickets} />
+							<BuyButton quantity={quantity} />
 						</div>
 						{userTickets >= 0 && (
 							<div className="stats">
