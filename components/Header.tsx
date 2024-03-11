@@ -1,8 +1,8 @@
-import { Bars3BottomRightIcon } from "@heroicons/react/24/outline";
-import NavButton from "./NavButton";
-import React from "react";
-import { useAddress, useDisconnect, Web3Button, darkTheme } from "@thirdweb-dev/react";
-import { redirect } from "next/dist/server/api-utils";
+import { Bars3BottomRightIcon } from '@heroicons/react/24/outline';
+import NavButton from './NavButton';
+import React from 'react';
+import { useAddress, useDisconnect, Web3Button, darkTheme } from '@thirdweb-dev/react';
+import { redirect } from 'next/dist/server/api-utils';
 
 export default function Header() {
 	const address = useAddress();
@@ -15,7 +15,7 @@ export default function Header() {
 				<img className="rounded-full h-20 w-20" src="DragonLogo200.png" alt="" />
 
 				<div>
-					<h1 className="text-lg text-white font-bold">The Dragon Lottery</h1>
+					<h1 className="text-lg text-white font-bold">DRGN3D Lottery</h1>
 					<p className="test-xs text-emerald-500 truncate">
 						User: {address?.substring(0, 5)}...
 						{address?.substring(address.length - 5, address.length)}
@@ -27,18 +27,18 @@ export default function Header() {
 				<div className="bg-[#2f0d16] p-4 space-x-2">
 					<a
 						className="hover:bg-[#7e233d] text-white py-2 px-4 rounded font-bold"
-						href="https://dragon-bsc.vip">
+						href="https://dragon3d.app">
 						Home
 					</a>
 					<Web3Button
 						theme={darkTheme({
-							fontFamily: "Inter, sans-serif",
+							fontFamily: 'Inter, sans-serif',
 							colors: {
-								modalBg: "#000000",
-								accentText: "red",
+								modalBg: '#000000',
+								accentText: 'red',
 							},
 						})}
-						connectWallet={{ btnTitle: "Connect Wallet", modalTitle: "Login" }}
+						connectWallet={{ btnTitle: 'Connect Wallet', modalTitle: 'Login' }}
 						isDisabled={disabled}
 						contractAddress="0xC07EA1c6BbB14088Fcab9D4D49A2023f2d455191"
 						action={(contract) => console.log(contract)}
